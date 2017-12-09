@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  height: 100px;
+  padding: 5px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+img {
+  margin: 5px;
+  max-height: 450px;
+}
+
+button, label{
+  margin: 5px;
+}
+
+div#game{
+  background-color: #eee;
+  width: 800px;
+  margin: 0 auto;
+}
