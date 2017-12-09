@@ -6,14 +6,7 @@ import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from './state/store/configureStore';
 
-window.store = configureStore({
-  game: {
-    mainImageIndex: 0,
-    pageNum: 1,
-    perPage: 4, // Per supplied requirements
-    direction: 'forward',
-  },
-});
+window.store = configureStore({});
 
 const rootEl = document.getElementById('root');
 

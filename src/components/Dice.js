@@ -5,8 +5,12 @@ const diceStyle = {
   float: 'left',
 };
 
+const freezeButtonsStyle = {
+  height: '20px',
+};
+
 const freezeButtonHTML = props => (
-  <div>
+  <div style={freezeButtonsStyle}>
     <Field name={`btnFreeze_${props.id}`} id={`btnFreeze_${props.id}`} component="input" type="checkbox" />
     <label htmlFor={`btnFreeze_${props.id}`}>Freeze</label>
   </div>
@@ -26,7 +30,7 @@ const Dice = (props) => {
         width={125}
         height={125}
       />
-      {props.game.started ? freezeButtonHTML(props) : undefined}
+      {props.game.started ? freezeButtonHTML(props) : <div style={freezeButtonsStyle} />}
     </div>
   );
 };

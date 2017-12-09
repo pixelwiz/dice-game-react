@@ -3,54 +3,70 @@ const defaultState = {
     {
       id: 1,
       value: 1,
-      rolling: false,
     },
     {
       id: 2,
       value: 2,
-      rolling: false,
     },
     {
       id: 3,
       value: 3,
-      rolling: false,
     },
     {
       id: 4,
       value: 4,
-      rolling: false,
     },
     {
       id: 5,
       value: 5,
-      rolling: false,
     },
   ],
   game: {
     started: false,
     rolls: 0,
+    rolling: false,
   },
 };
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case 'ROLL':
+    case 'SET_GAME_STARTED':
       return {
         ...state,
         game: {
           ...state.game,
           started: true,
-        }
+        },
+      };
+    case 'SET_GAME_OVER':
+      return {
+        ...state,
+        game: {
+          ...state.game,
+          rolls: 0,
+          started: false,
+        },
+      };
+    case 'ADD_ROLL':
+      return {
+        ...state,
+        game: {
+          ...state.game,
+          rolls: state.game.rolls + 1,
+        },
       };
     case 'SET_ROLLING':
       return {
         ...state,
-        rolling: action.rolling,
+        game: {
+          ...state.game,
+          rolling: action.rolling,
+        }
       };
-    case 'SET_VALUE':
+    case 'SET_RANDOM_VALUES':
       return {
         ...state,
-        vaule: action.value,
+        arrDiceData: action.arrDice,
       };
     default:
       return state;

@@ -11,13 +11,12 @@ const diceCollectionStyle = {
 
 const getDiceHTML = (props) => {
   const { diceData } = props;
-  console.log(diceData);
   const diceHTML = diceData.arrDiceData.map(item => (
     <Dice
+      key={item.id}
       id={item.id}
       value={item.value}
-      rolling={item.rolling}
-      img={item.rolling ? DiceImages.imgRollingDice : DiceImages[`imgDice${item.value}`]}
+      img={diceData.game.rolling ? DiceImages.imgRollingDice : DiceImages[`imgDice${item.value}`]}
       game={diceData.game}
     />
   ));
@@ -25,12 +24,9 @@ const getDiceHTML = (props) => {
 };
 
 const DiceCollection = (props) => {
-  const {
-    handleSubmit,
-  } = props;
   return (
     <div id="diceCollection" style={diceCollectionStyle}>
-      <form onSubmit={handleSubmit}>
+      <form>
         {getDiceHTML(props)}
       </form>
     </div>
