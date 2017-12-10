@@ -2,8 +2,9 @@ export const setGameStarted = () => ({
   type: 'SET_GAME_STARTED',
 });
 
-export const setGameOver = () => ({
+export const setGameOver = message => ({
   type: 'SET_GAME_OVER',
+  message,
 });
 
 export const addRoll = () => ({

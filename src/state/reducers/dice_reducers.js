@@ -44,6 +44,7 @@ export default (state = defaultState, action) => {
         game: {
           ...state.game,
           rolls: 0,
+          message: action.message,
         },
       };
     case 'ADD_ROLL':
@@ -60,12 +61,15 @@ export default (state = defaultState, action) => {
         game: {
           ...state.game,
           rolling: action.rolling,
-        }
+          message: undefined,
+        },
       };
     case 'SET_RANDOM_VALUES':
       return {
         ...state,
-        arrDiceData: action.arrDice,
+        arrDiceData: [
+          ...action.arrDice,
+        ],
       };
     default:
       return state;
