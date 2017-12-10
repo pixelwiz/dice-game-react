@@ -1,8 +1,6 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
 import Dice from './Dice';
-import DiceImages from './DiceImages';
-
 
 const diceCollectionStyle = {
   display: 'flex',
@@ -10,13 +8,14 @@ const diceCollectionStyle = {
 };
 
 const getDiceHTML = (props) => {
-  const { diceData } = props;
+  const { diceData, form } = props.diceProps;
   const diceHTML = diceData.arrDiceData.map(item => (
     <Dice
       key={item.id}
       id={item.id}
       value={item.value}
-      img={diceData.game.rolling ? DiceImages.imgRollingDice : DiceImages[`imgDice${item.value}`]}
+      rolling={diceData.game.rolling}
+      form={form}
       game={diceData.game}
     />
   ));
@@ -32,7 +31,6 @@ const DiceCollection = (props) => {
     </div>
   );
 };
-
 
 export default reduxForm({
   form: 'diceForm', // a unique identifier for this form

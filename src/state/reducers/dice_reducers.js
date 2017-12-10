@@ -44,7 +44,6 @@ export default (state = defaultState, action) => {
         game: {
           ...state.game,
           rolls: 0,
-          started: false,
         },
       };
     case 'ADD_ROLL':
